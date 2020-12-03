@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+}
+
+.button {
+  min-width: 100px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 2px solid #000000;
+  overflow: hidden;
+  background-color: transparent;
+  font-size: 20px;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(0.95);
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(86, 88, 240);
+  color: #ffffff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5) inset;
+}
