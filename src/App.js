@@ -17,12 +17,16 @@ export default class App extends Component {
     }));
   };
 
-  getNameFeedback = name => {
-    return `${name.slice(0, 1).toUpperCase()}${name.slice(1).toLowerCase()}`;
-  };
+  // ------------Робить великою першу букву без css-----------------------
+  // getNameFeedback = name => {
+  //   return `${name.slice(0, 1).toUpperCase()}${name.slice(1).toLowerCase()}`;
+  // };
 
   countTotalFeedback = () => {
-    return Object.values(this.state).reduce((acc, item) => acc + item, 0);
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+    // ---------Сума, коли опцій багато ;)
+    // return Object.values(this.state).reduce((acc, item) => acc + item, 0);
   };
 
   countPositiveFeedbackPercentage = () => {
@@ -34,7 +38,7 @@ export default class App extends Component {
       <div>
         <Section title="Please leave feedback">
           <Feedback
-            options={this.state}
+            options={['good', 'neutral', 'bad']}
             onLeaveFeedback={this.clickActiveItem}
             getNameFeedback={this.getNameFeedback}
           />

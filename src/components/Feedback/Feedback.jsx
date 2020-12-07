@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import s from './Feedback.module.css';
 
 export default function FeedbackOptions({
@@ -6,13 +7,16 @@ export default function FeedbackOptions({
   onLeaveFeedback,
   getNameFeedback,
 }) {
-  const namesResponse = Object.keys(options);
   return (
     <ul className={s.list}>
-      {namesResponse.map(item => (
-        <li key={item}>
-          <button onClick={() => onLeaveFeedback(item)} className={s.button}>
-            {getNameFeedback(item)}
+      {options.map(option => (
+        <li key={shortid.generate()}>
+          <button
+            onClick={() => onLeaveFeedback(option)}
+            className={s.button}
+            name={option}
+          >
+            {option}
           </button>
         </li>
       ))}
